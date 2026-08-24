@@ -1,0 +1,14 @@
+class Solution {
+    public int smallestEvenMultiple(int n) {
+        int ans = 0;
+        int m = n;
+        for(int i=1;i<10;i++){
+                int b = m * i;
+                if(b % 2 == 0) {
+                    
+                    return b;
+                }
+        }
+        return n;
+    }
+}
