@@ -1,0 +1,15 @@
+class Solution {
+    public int missingMultiple(int[] arr, int k) {
+        int n = arr.length;
+        HashSet<Integer> set = new HashSet<>();
+        for(int x:arr){
+            set.add(x);
+        }
+        int m = k;
+        for(int i=0;i<n;i++){
+            if(set.contains(m)) m +=k;
+
+        }
+        return m;
+    }
+}
