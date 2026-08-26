@@ -1,0 +1,15 @@
+class Solution {
+    public int findFinalValue(int[] arr, int ori) {
+        int n = arr.length;
+        int x = ori;
+        HashSet<Integer> set = new HashSet<>();
+        for(int y:arr){
+            set.add(y);
+        }
+        while(set.contains(x)){
+            x *=2;
+        }
+
+        return x;
+    }
+}
