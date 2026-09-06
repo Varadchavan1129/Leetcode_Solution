@@ -1,0 +1,36 @@
+class Solution {
+    public List<List<Integer>> aggregateTimeSeries(int[][] s1, int[][] s2) {
+        List<List<Integer>> ans= new ArrayList<>();
+
+        int i=0,j=0;
+        int val1=0,val2=0;
+        while (i < s1.length || j < s2.length) {
+            int t;
+
+            if (j == s2.length || (i < s1.length && s1[i][0] < s2[j][0])) {
+                t = s1[i][0];
+                val1 = s1[i][1];
+                i++;
+            } else if (i == s1.length || s2[j][0] < s1[i][0]) {
+                t = s2[j][0];
+                val2 = s2[j][1];
+                j++;
+            } else {
+                t = s1[i][0];
+                val1 = s1[i][1];
+                val2 = s2[j][1];
+                i++;
+                j++;
+            }
+
+            List<Integer> curr = new ArrayList<>();
+            curr.add(t);
+            curr.add(val1 + val2);
+            ans.add(curr);
+        }
+
+        return ans;
+            
+        
+    }
+}
