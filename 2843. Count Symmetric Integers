@@ -1,0 +1,32 @@
+class Solution {
+    public int countSymmetricIntegers(int low, int high) {
+        int ans = 0;
+        while(low<=high){
+            int a = low;
+            
+            String s = String.valueOf(a);
+        if(s.length()%2==1) {
+            low++;
+            continue;
+        }
+            String half = s.substring(0,s.length()/2);
+            String rem = s.substring(s.length()/2);
+
+            int half1 = Integer.parseInt(half);
+            int rem1 = Integer.parseInt(rem);
+            if(sum(half1)==sum(rem1)) ans++;
+            low++;
+
+        }
+        return ans;
+    }
+    private int sum (int x){
+        int sum = 0;
+        while(x>0){
+            int c = x%10;
+            sum += c;
+            x /= 10;
+        }
+        return sum;
+    }
+}
