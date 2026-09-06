@@ -1,0 +1,30 @@
+class Solution {
+    public int majorityElement(int[] arr) {
+        int n = arr.length ;
+        // Map<Integer,Integer> map = new HashMap<>();
+        // for(int x:arr){
+        //         map.put(x,map.getOrDefault(x,0)+1);
+        // }
+        // for(int x:map.keySet()){
+        //     if(map.get(x)>n/2){
+        //         return x;
+        //     }
+        // }
+
+        int ele = arr[0];
+        int cnt = 1;
+        for(int i=1;i<n;i++){
+            if(ele==arr[i]) cnt++;
+            
+            else {
+                cnt--;
+                if(cnt==0) {
+                    ele = arr[i];
+                    cnt++;
+                }
+            }
+        }
+        if (cnt>0) return ele ;
+        else return 0;
+    }
+}
