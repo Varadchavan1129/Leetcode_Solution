@@ -4,12 +4,20 @@ class Solution {
         int n1 = arr1.length;
         int n2 = arr2.length;
         for(int i=0;i<n1;i++){
-                int cnt = n2;
+                // int cnt = n2;
+                // for(int j=0;j<n2;j++){
+                //     int k = Math.abs(arr1[i]-arr2[j]);
+                //     if(k > d) cnt--;
+                // }
+
+                boolean flag = true;
                 for(int j=0;j<n2;j++){
-                    int k = Math.abs(arr1[i]-arr2[j]);
-                    if(k > d) cnt--;
+                    if(Math.abs(arr1[i]-arr2[j]) <= d){
+                        flag = false;
+                        break;
+                    }
                 }
-                if(cnt==0) ans++;
+                if(flag) ans++;
         } 
         return ans;
     }
